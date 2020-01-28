@@ -15,7 +15,7 @@ router.get('/attori', function (req, res, next) {
 
         // Query
         let sqlRequest = new sql.Request();  //Oggetto che serve a creare le query
-        sqlRequest.query('select * from Autore', (err, result) => {
+        sqlRequest.query('select * from dbo.[cr-unit-attributes]', (err, result) => {
             if (err) console.log(err); // ... error checks
             res.send(result);  //Invio il risultato
         });
@@ -29,7 +29,7 @@ router.get('/search/:name', function (req, res, next) {
         if (err) console.log(err);
         // Query
         let sqlRequest = new sql.Request();
-        sqlRequest.query(`select * from Autore where CognomeAutore = '${req.params.name}'`, (err, result) => {
+        sqlRequest.query(`select * from dbo.[cr-unit-attributes] where Unit = '${req.params.name}'`, (err, result) => {
             // ... error checks
             if (err) console.log(err);
 
