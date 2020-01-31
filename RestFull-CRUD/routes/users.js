@@ -2,6 +2,15 @@ var express = require('express');
 var router = express.Router();
 const sql = require('mssql');
 var createError = require('http-errors');
+
+const config = {
+  user: 'cappella.christian',  //Vostro user name
+  password: 'xxx123#', //Vostra password
+  server: "213.140.22.237",  //Stringa di connessione
+  database: 'cappella.christian', //(Nome del DB)
+}
+
+
 //Function to connect to database and execute query
 let executeQuery = function (res, query, next) {
   sql.connect(config, function (err) {
